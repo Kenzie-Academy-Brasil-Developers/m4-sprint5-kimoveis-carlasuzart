@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 
 services:
   api:
@@ -8,30 +8,28 @@ services:
       - 3000:3000
     environment:
       - DB_HOST=db
-      - DB_PASSWORD=1234
-      - DB=e5
-      - DB_USER=kenzinho
-      - SECRET_KEY=sua_chave_secreta
+      - DB_PASSWORD=784915
+      - DB=entrega
+      - DB_USER=carla
+      - SECRET_KEY=TESTE123
     depends_on:
       db:
         condition: service_healthy
     volumes:
       - .:/app
-  
+
   db:
     container_name: db
     image: postgres:14
     ports:
       - 5431:5432
     environment:
-      - POSTGRES_USER=kenzinho
-      - POSTGRES_PASSWORD=1234
-      - POSTGRES_DB=e5
+      - POSTGRES_USER=carla
+      - POSTGRES_PASSWORD=784915
+      - POSTGRES_DB=entrega
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U kenzinho -d e5"]
+      test: ["CMD-SHELL", "pg_isready -U carla -d entrega"]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 5s
-   
-
