@@ -58,7 +58,7 @@ const createSchedulesService = async ({
     Number(format(newFormat, "H")) < 8 ||
     Number(format(newFormat, "H")) > 17
   ) {
-    throw new AppError(400, "Open schedule only between 8:00h and 18:00h!");
+    throw new AppError(400, "Open schedule only between 8:00h and 17:00h!");
   }
 
   const newSchedule = scheduleRepository.create({
@@ -72,3 +72,5 @@ const createSchedulesService = async ({
 
   return newSchedule;
 };
+
+export default createSchedulesService;
