@@ -6,6 +6,7 @@ import {
   UpdateDateColumn,
   OneToMany,
 } from "typeorm";
+import { Exclude } from "class-transformer";
 
 import { v4 as uuid } from "uuid";
 import { Schedule } from "./schedule.entity";
@@ -28,6 +29,7 @@ export class User {
   isActive: boolean;
 
   @Column()
+  @Exclude()
   password: string;
 
   @CreateDateColumn()
