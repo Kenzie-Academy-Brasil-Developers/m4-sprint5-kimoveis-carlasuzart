@@ -18,7 +18,7 @@ export class Address {
   @Column()
   city: string;
 
-  @Column()
+  @Column({ length: 2 })
   state: string;
 
   constructor() {

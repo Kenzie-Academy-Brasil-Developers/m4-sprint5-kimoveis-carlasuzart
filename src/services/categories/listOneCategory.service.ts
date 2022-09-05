@@ -21,3 +21,5 @@ const listOneCategoryService = async (idCategory: string) => {
 
   return categories;
 };
+
+export default listOneCategoryService;

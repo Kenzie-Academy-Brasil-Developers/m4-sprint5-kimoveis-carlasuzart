@@ -33,6 +33,10 @@ const createPropertyService = async ({
     throw new AppError(400, "State already exists");
   }
 
+  if (state.length > 2) {
+    throw new AppError(400, "Invalid size");
+  }
+
   const newAddress = addressRepository.create({
     district,
     zipCode,
