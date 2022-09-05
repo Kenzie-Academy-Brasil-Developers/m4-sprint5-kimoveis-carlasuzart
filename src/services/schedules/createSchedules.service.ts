@@ -51,14 +51,14 @@ const createSchedulesService = async ({
     Number(format(newFormat, "ee")) === 1 ||
     Number(format(newFormat, "ee")) === 7
   ) {
-    throw new AppError(400, "Open schedule only on weekdays!");
+    throw new AppError(400, "Only business day");
   }
 
   if (
     Number(format(newFormat, "H")) < 8 ||
     Number(format(newFormat, "H")) > 17
   ) {
-    throw new AppError(400, "Open schedule only between 8:00h and 17:00h!");
+    throw new AppError(400, "Appointment available from 8:00hs to 17:00hs");
   }
 
   const newSchedule = scheduleRepository.create({
